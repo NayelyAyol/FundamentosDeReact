@@ -1,17 +1,28 @@
-## Running React on Replit
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+<h1 align="center"> ⚛️FUNDAMENTOS DE REACT ⚛️</h1>
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+Se desarrollaron ejemplos con los diferentes conceptos clave aprendidos en clase. Con su ayuda fue posible identificar la influencia que tienen en el desarrollo de aplicaciones más interactivas.
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+## 🛠️ Creado por
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
+Este proyecto fue completado por las siguientes integrantes:
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+- Nayely Ayol
+- Alessia Pérez
+- Emily Galeas
 
-### Typescript
+## 🖼️ Vista Previa del Proyecto
 
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+| **Función** | **Ejemplo** | **Descripción** |
+| :----------- | :-----------: | :---------------------------------------------- |
+| **React** | <img src="Imagenes/react.png" width="400" height="400"/> | Librería para construir interfaces de usuario dinámicas con componentes reutilizables. |
+| **useState** | <img src="Imagenes/useState.png" width="400" height="400"/> | La memoria del componente. Guarda un valor y fuerza la actualización (renderizado) al cambiar. |
+| **useEffect** | <img src="Imagenes/useEffect.png" width="400" height="400"/> | Permite ejecutar tareas externas (ej. llamadas a API) después del renderizado. |
+| **customHook** | <img src="Imagenes/customHook.png" width="400" height="400"/> | Función personalizada para reutilizar lógica compleja de estado (useState, useEffect) entre varios componentes. |
+| **Props** | <img src="Imagenes/props.png" width="400" height="400"/> | Datos de solo lectura pasados de un componente padre a un hijo para configurarlo. |
+| **Zustand** | <img src="Imagenes/zustand.png" width="400" height="400"/> | Librería que crea un almacén de datos central (estado global) para compartir información sin pasar props. |
+| **Renderizado** | <img src="Imagenes/renderizado.png" width="400" height="400"/> | Proceso que actualiza la pantalla para mostrar los cambios en los datos “en vivo”. |
+| **localStorage** | <img src="Imagenes/local.png" width="400" height="400"/> | API del navegador que guarda datos de forma persistente en el dispositivo del usuario. |
+
+## 🔗 Link del despliegue en Netlify
+[![Ver despliegue en Netlify](https://img.shields.io/badge/Ver%20despliegue%20en%20Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://fundamentosreactlab.netlify.app/)
