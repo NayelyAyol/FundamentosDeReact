@@ -1,85 +1,80 @@
 /*
-
-  1- Rederizado condicional
-  2- Renderizado de listas
-
+  3- Renderizado condicional y de listas
 */
 
-import { useState } from "react"
-
-
+import { useState } from "react";
 
 const Noveno = () => {
+  // Lista de invitados con estado de confirmación
+  const [invitados, setInvitados] = useState([
+    { nombre: "Emily", confirmado: true },
+    { nombre: "Jaziel", confirmado: false },
+    { nombre: "Alessia", confirmado: true },
+    { nombre: "Nayely", confirmado: false },
+  ]);
 
-  const [login, setLogin] = useState(false)
-  const [habilidades] = useState([
-    { nombre: "HTML", icono: "📙" },
-    { nombre: "CSS", icono: "📘" },
-    { nombre: "JavaScript", icono: "📒" },
-    { nombre: "React", icono: "⚛️" },
-    { nombre: "Node.js", icono: "📗" },
-  ])
+  // Contador de invitados confirmados
+  const confirmados = invitados.filter((i) => i.confirmado).length;
+
+  // Función para cambiar estado de confirmación de un invitado
+  const toggleConfirmado = (index) => {
+    const nuevos = [...invitados];
+    nuevos[index].confirmado = !nuevos[index].confirmado;
+    setInvitados(nuevos);
+  };
 
   return (
     <>
       <h1 className="font-bold text-2xl">Renderizado</h1>
 
-      <hr className="border-gray-400 mb-8"/>
+      <hr className="border-gray-400 mb-8" />
 
-      <ul className="list-disc pl-5">
+      <ul className="list-disc pl-5 mb-4">
         <li>
-        <strong>Renderizado condicional:</strong> Permite mostrar u ocultar elementos de la interfaz según ciertas condiciones.
+          <strong>Renderizado condicional:</strong> Muestra elementos según una condición.
         </li>
         <li>
-          <strong>Renderizado de listas:</strong> Permite mostrar múltiples elementos a partir de un array usando métodos de los arreglos.
+          <strong>Renderizado de listas:</strong> Permite crear elementos desde un arreglo.
         </li>
       </ul>
 
+      {/* RENDERIZADO CONDICIONAL */}
       <div className="flex justify-center mb-8 mt-8">
         <div className="border rounded-lg p-4 w-120 mx-auto text-center">
-          
           <h2 className="text-1xl font-bold text-left underline mb-4">Condicional</h2>
 
-          {login 
-            ? 
-          (
-            <p>¡Bienvenido de nuevo! 😎 </p>
-          ) 
-            : 
-          (
-           <p>Por favor, inicia sesión</p>
+          {confirmados > 0 ? (
+            <p>Hay {confirmados} invitados confirmados 🎉</p>
+          ) : (
+            <p>No hay invitados confirmados aún 😢</p>
           )}
-
-          <button className="mt-2 bg-blue-600 text-white py-1 px-3 rounded" onClick={() => setLogin(!login)}>
-            {login ? "Cerrar sesión" : "Iniciar sesión"}
-          </button>
-
         </div>
-
       </div>
 
+      {/* RENDERIZADO DE LISTAS */}
       <div className="flex justify-center mb-8">
+        <div className="border rounded-lg p-4 w-120 mx-auto text-left">
+          <h2 className="text-1xl font-bold underline mb-4">Lista de Invitados</h2>
 
-        <div className=" border rounded-lg p-4 w-120 mx-auto text-center">
-
-          <h2 className="text-1xl font-bold text-left underline mb-4">Listas</h2>
-          
-            <ul className="list-disc pl-5 text-left">
-              
-              {habilidades.map((habilidad, index) => (
-      
-                <li key={index}>{habilidad.icono} - {habilidad.nombre}</li>
-      
-              ))}
-            
-            </ul>
-          
+          <ul className="list-disc pl-5">
+            {invitados.map((invitado, index) => (
+              <li key={index} className="flex justify-between items-center mb-1">
+                <span>
+                  {invitado.nombre} - {invitado.confirmado ? "✅ Confirmado" : "❌ Pendiente"}
+                </span>
+                <button
+                  className="bg-blue-600 text-white px-2 py-0.5 rounded ml-2"
+                  onClick={() => toggleConfirmado(index)}
+                >
+                  Cambiar
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
-
       </div>
-
     </>
-  )
-  }
+  );
+};
 
-export default Noveno
+export default Noveno;
